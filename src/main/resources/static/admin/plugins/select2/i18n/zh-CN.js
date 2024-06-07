@@ -1,0 +1,3 @@
+/*! Select2 4.0.0 | https://github.com/select2/select2/blob/master/LICENSE.md */
+
+(function(){if(jQuery&&jQuery.fn&&jQuery.fn.select2&&jQuery.fn.select2.amd)var e=jQuery.fn.select2.amd;return e.define("select2/i18n/zh-CN",[],function(){return{errorLoading:function(){return"無法載入結果。"},inputTooLong:function(e){var t=e.input.length-e.maximum,n="請刪除"+t+"個字元";return n},inputTooShort:function(e){var t=e.minimum-e.input.length,n="請再輸入至少"+t+"個字元";return n},loadingMore:function(){return"載入更多結果…"},maximumSelected:function(e){var t="最多隻能選擇"+e.maximum+"個專案";return t},noResults:function(){return"未找到結果"},searching:function(){return"搜索中…"}}}),{define:e.define,require:e.require}})();

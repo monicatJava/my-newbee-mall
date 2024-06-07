@@ -1,0 +1,73 @@
+<!-- Copyright (c) 2019-2020 十三 all rights reserved. -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header th:replace="admin/header::header-fragment"></header>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <!-- 引入頁面頭header-fragment -->
+    <div th:replace="admin/header::header-nav"></div>
+    <!-- 引入工具欄sidebar-fragment -->
+    <div th:replace="admin/sidebar::sidebar-fragment(${path})"></div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- Main content -->
+        <div class="content">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">首頁</h3>
+                </div> <!-- /.card-body -->
+                <div class="card-body">
+                    <div class="panel panel-default">
+                        <div style="padding: 10px 0 20px 10px;">
+                            <a href="https://gitee.com/newbee-ltd/newbee-mall" target="_blank">
+                                <img th:src="@{/admin/dist/img/newbee-logo.png}" style="width: 480px;height: 240px;">
+                                <p>newbee-mall 專案是一套電商系統，包括 newbee-mall 商城系統及 newbee-mall-admin 商城後臺管理系統，基於 Spring Boot
+                                    2.X
+                                    及相關技術棧開發。
+                                    前臺商城系統包含首頁門戶、商品分類、新品上線、首頁輪播、商品推薦、商品搜索、商品展示、購物車、訂單結算、訂單流程、個人訂單管理、會員中心、幫助中心等模組。
+                                    後臺管理系統包含數據面板、輪播圖管理、商品管理、訂單管理、會員管理、分類管理、設定等模組。</p>
+                                <ul>
+                                    <li>newbee-mall 對新手開發者十分友好，無需複雜的操作步驟，僅需 2 秒就可以啟動這個完整的商城專案；</li>
+                                    <li>newbee-mall 也是一個企業級別的 Spring Boot 大型專案，對於各個階段的 Java 開發者都是極佳的選擇；</li>
+                                    <li>你可以把它作為 Spring Boot 技術棧的綜合實踐專案，newbee-mall 足夠符合要求，且程式碼開源、功能完備、流程完整、頁面互動美觀；</li>
+                                    <li>技術棧新穎且知識點豐富，學習后可以提升大家對於知識的理解和掌握，可以進一步提升你的市場競爭力；</li>
+                                    <li>對於部分求職中的 Java 開發者，你也可以將該專案放入求職簡歷中以豐富你的工作履歷；</li>
+                                    <li>newbee-mall 還有一些不完善的地方，鄙人才疏學淺，望見諒；</li>
+                                    <li>有任何問題都可以反饋給我，我會盡量完善該專案。</li>
+                                </ul>
+                            </a>
+                            <h3>聯繫作者</h3>
+                            <ul>
+                                <li>我的郵箱：2449207463@qq.com</li>
+                                <li>QQ技術交流群：796794009
+                                </li>
+                            </ul>
+                            <p>newbee-mall 在 GitHub 和國內的碼云都建立了程式碼倉庫，如果有人訪問 GitHub 比較慢的話，建議在 Gitee 上檢視該專案，兩個倉庫會保持同步更新。</p>
+                            <ul>
+                                <li><a href="https://github.com/newbee-ltd/newbee-mall" target="_blank">newbee-mall in GitHub</a></li>
+                                <li><a href="https://gitee.com/newbee-ltd/newbee-mall" target="_blank">newbee-mall in Gitee</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- 引入頁尾footer-fragment -->
+    <div th:replace="admin/footer::footer-fragment"></div>
+</div>
+<!-- jQuery -->
+<script th:src="@{/admin/plugins/jquery/jquery.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{/admin/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/admin/dist/js/adminlte.min.js}"></script>
+</body>
+</html>

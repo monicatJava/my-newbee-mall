@@ -1,0 +1,106 @@
+<!-- Copyright (c) 2019-2020 十三 all rights reserved. -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>NewBee商城-登錄</title>
+    <link rel="stylesheet" th:href="@{mall/css/common.css}">
+    <link rel="stylesheet" th:href="@{mall/styles/login.css}">
+    <link rel="stylesheet" th:href="@{mall/styles/header.css}">
+    <link rel="stylesheet" th:href="@{/admin/plugins/sweetalert/sweetalert.css}"/>
+</head>
+<body>
+<div class="top center">
+    <div class="logo center">
+        <a href="./index.html" target="_blank"><img src="mall/image/login-logo-2.png" alt=""></a>
+    </div>
+</div>
+<div class="form center">
+    <div class="login">
+        <div class="login_center">
+            <div class="login_top">
+                <div class="left fl">會員登錄</div>
+                <div class="right fr">您還不是我們的會員？<a href="register.html" target="_self">立即註冊</a></div>
+                <div class="clear"></div>
+                <div class="under-line center"></div>
+            </div>
+            <form id="loginForm" onsubmit="return false;" action="##">
+                <div class="login_main center">
+                    <div class="login-info">手機號:&nbsp;<input class="login-info-input" type="text" name="loginName"
+                                                             id="loginName"
+                                                             placeholder="請輸入你的手機號"/>
+                    </div>
+                    <div class="login-info">密&nbsp;&nbsp;&nbsp;&nbsp;碼:&nbsp;<input class="login-info-input"
+                                                                                    id="password"
+                                                                                    type="password"
+                                                                                    name="password"
+                                                                                    placeholder="請輸入你的密碼"/></div>
+                    <div class="login-info">
+                        驗證碼:&nbsp;
+                        <input class="login-info-input verify-code" type="text" name="verifyCode"
+                               placeholder="請輸入驗證碼" id="verifyCode"/>
+                        <img alt="單擊圖片重新整理！" style="top: 16px;position: relative;" th:src="@{/common/mall/kaptcha}"
+                             onclick="this.src='/common/mall/kaptcha?d='+new Date()*1">
+                    </div>
+                </div>
+                <div class="login_submit">
+                    <input class="submit" type="submit" onclick="login()" value="立即登錄">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<!-- jQuery -->
+<script th:src="@{/admin/plugins/jquery/jquery.min.js}"></script>
+<script th:src="@{/admin/dist/js/public.js}"></script>
+<script th:src="@{/admin/plugins/sweetalert/sweetalert.min.js}"></script>
+<script type="text/javascript">
+    function login() {
+        var loginName = $("#loginName").val();
+        if (!validPhoneNumber(loginName)) {
+            swal('請輸入正確的登錄名(即手機號)', {
+                icon: "error",
+            });
+            return false;
+        }
+        var password = $("#password").val();
+        if (!validPassword(password)) {
+            swal('請輸入正確的密碼格式(6-20位字元和數字組合)', {
+                icon: "error",
+            });
+            return false;
+        }
+        var verifyCode = $("#verifyCode").val();
+        if (!validLength(verifyCode, 5)) {
+            swal('請輸入正確的驗證碼', {
+                icon: "error",
+            });
+            return false;
+        }
+        //驗證
+        var params = $("#loginForm").serialize();
+        var url = '/login';
+        $.ajax({
+            type: 'POST',//方法型別
+            url: url,
+            data: params,
+            success: function (result) {
+                if (result.resultCode == 200) {
+                    window.location.href = '/index';
+                } else {
+                    swal(result.message, {
+                        icon: "error",
+                    });
+                }
+                ;
+            },
+            error: function () {
+                swal("操作失敗", {
+                    icon: "error",
+                });
+            }
+        });
+    }
+</script>
+</html>
